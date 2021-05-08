@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% include 'head.html' %}
+
+<body>
+ 
+    {% block content %}
+    {% endblock %}
+
+    {% include 'scripts.html' %}
+    {% block add_js%}
+{% endblock add_js %}
+</body>
