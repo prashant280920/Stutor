@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-&a+ene-)mp$0n2cwfir+xabvx1va_0w@drdq4cvno^mw+2bn*&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://stutor-pk.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'stutor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(os.path.join(BASE_DIR, 'db.sqlite3')),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2rc46hjq8f0bt',
+        'USER': 'axtzrrrphxiyae',
+        'PASSWORD': '40c40863f958b7cbdd18f20d65099eebd5fb94ae9d58818f0ed715cd998bbaa4',
+        'HOST': 'ec2-34-206-8-52.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
