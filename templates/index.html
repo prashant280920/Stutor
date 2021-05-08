@@ -7,7 +7,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
   .container {
-    max-width: 550px;
+    max-width: 750px;
   }
 
   .column {
@@ -25,14 +25,14 @@
 
 <section class="main-body">
   <h1>Hello {{user}}! Welcome to Stutor...</h1>
-  <form class="filter-form" action="" method="GET">
+  <form class="filter-form" style="margin-left:70%" action="" method="GET">
     <!-- <input type="text" placeholder="filter" style="margin-left:80%"> -->
     {{filter.form.as_p}}
-    <button class="btn btn-primary">Filter</button>
+    <button class="btn btn-primary"style="margin-left:32%">Filter</button>
   </form>
   {% for users in tutor_page_obj %}
 
-  <div class="column">
+<div class="column">
 
     <div class="container">
 
@@ -40,7 +40,9 @@
       <table class="table table-striped">
         <center>
           <div>
-            <img src="{{users.profile_pic.url}}" width="100" height="100">
+            <img src="{{users.profile_pic.url}}" width="150" height="150">
+            <br>
+            <hr>
             <br>
           </div>
         </center>
@@ -49,37 +51,37 @@
 
           <tr>
             <th scope="row"></th>
-            <td><b>Id:</b></td>
+            <td><b>Id</b></td>
             <td>:</td>
             <td>{{ users.id }} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Name:</b></td>
+            <td><b>Name</b></td>
             <td>:</td>
             <td>{{users.user.first_name}} {{users.user.last_name}} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Specialization:</b></td>
+            <td><b>Specialization</b></td>
             <td>:</td>
             <td>{{users.specialization}} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Availability: </b></td>
+            <td><b>Availability </b></td>
             <td>:</td>
             <td>Available</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>City </b></td>
+            <td><b>Country </b></td>
             <td>:</td>
             <td> {{users.country}}</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Coaching Address: </b></td>
+            <td><b>Coaching Address</b></td>
             <td>:</td>
             <td>{{users.homeaddress}}, {{users.country}}</td>
           </tr>
@@ -90,12 +92,15 @@
             <td>{{users.about}}</td>
           </tr>
         </tbody>
+        </table>
     </div>
-  </div>
+</div>
+
   {% endfor %}
-</section>
-<div class="pagination">
-  <span class="step-link">
+<br>
+<div class="pagination" style="margin-left:44%">
+<center>
+  <span class="step-link" >
     {% if tutor_page_obj.has_previous %}
     <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
     <a href="{% my_url tutor_page_obj.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
@@ -109,6 +114,12 @@
     <a href="{% my_url tutor_page_obj.next_page_number 'page' request.GET.urlencode %}">Next</a>
     <a href="{% my_url tutor_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Last</a>
     {% endif %}
-  </span>
+</span>
+</center>
+<hr>
+<br>
+<br>
 </div>
+
+</section>
 {% endblock %}
