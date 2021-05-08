@@ -6,15 +6,26 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UpdateProfileForm
 from .decorators import unauthenticated_user
 from django.contrib.auth.decorators import login_required
+from .filters import TutorFilter
+from .models import Profile
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 
 def index(request):
     current_user = request.user
-    queryset = User.objects.filter(groups__name='tutor')
-    # group = request.user.groups.all()[0].name
-    context = {'user': current_user, 'queryset': queryset}
+    tutors = Profile.objects.filter(user__groups__name='tutor')
+    filtered_tutors = TutorFilter(request.GET, queryset=tutors)
+    context = {
+        'user': current_user,
+        'queryset': tutors,
+        'filter': filtered_tutors,
+    }
+    paginated_filtered_tutors = Paginator(filtered_tutors.qs, 2)
+    page_number = request.GET.get('page')
+    tutor_page_obj = paginated_filtered_tutors.get_page(page_number)
+    context['tutor_page_obj'] = tutor_page_obj
     return render(request, 'index.html', context)
 
 
