@@ -1,35 +1,78 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block content %}
-<section class="main-body">
-    <h1>Welcome to Stutor, {{user}}</h1>
-    {% for users in queryset %}
-    <div class="column">
-        <div class="card">
-            <div class="new_clm">
-                <img src="{{users.profile.profile_pic.url}}">
-            </div>
-            <div class="new_clm">
-                <p><b>Id: </b></p>
-                <p>{{users.id}}</p>
-                <p><b>Name: </b></p>
-                <p>{{users.first_name}} {{users.last_name}}</p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src ="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+.container{
+  max-width:550px;
+}
+</style>
 
-                <p><b>Specialization: </b></p>
-                <p>{{users.profile.specialization}}</p>
-                <p><b>Availability: </b></p>
-                <p>Available</p>
-                <p><b>Coaching Address: </b></p>
-                <p>{{users.profile.homeaddress}}, {{users.profile.country}}</p>
-            </div>
-            <div class="new_clm">
-                <p><b>Discription</b></p>
-                <p>You can relay on our amazing features list and also our customer services.</p>
-                <p>You can relay on our amazing features list and also our customer services.</p>
-                <p>You can relay on our amazing features list and also our customer services.</p>
-            </div>
+<section class="main-body">
+    <h1>Hello {{user}}! Welcome to Stutor...</h1>
+    <input type="text" placeholder="filter" style="margin-left:80%">
+    {% for users in queryset %}
+
+    <div class="column">
+        
+        <div class="container">
+            
+            
+            <table class="table table-striped">
+                <center>
+                <div>
+                    <img src="{{users.profile.profile_pic.url}}" width="100" height="100" >
+                    <br>
+                </div>
+                </center>
+   
+                <tbody>
+            
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Id:</b></td>
+                    <td>:</td>
+                    <td>{{ users.id }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Name:</b></td>
+                    <td>:</td>
+                    <td>{{users.first_name}} {{users.last_name}} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Specialization:</b></td>
+                    <td>:</td>
+                    <td>{{users.profile.specialization}} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Availability: </b></td>
+                    <td>:</td>
+                    <td>Available</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>City </b></td>
+                    <td>:</td>
+                    <td> {{users.profile.country}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Coaching Address: </b></td>
+                    <td>:</td>
+                    <td>{{users.profile.homeaddress}}, {{users.profile.country}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><b>Discription</b></td>
+                    <td>:</td>
+                    <td>{{users.profile.about}}</td>
+                  </tr>
+                  </tbody>
         </div>
     </div>
     {% endfor %}
