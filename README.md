@@ -19,7 +19,7 @@ Also in future we will try to implement digital live classes, where students can
 
 
 ## Available Scripts
-
+* You can run the file on the localhost following below steps:
 1. First fork this repo and then Clone it
 2. Run `cd Stutor` - to move into the directory 
 3. Install virtualenv using command - `pip install virtualenv`. In linux - `sudo pip3 install virtualenv`.
@@ -32,3 +32,6 @@ Also in future we will try to implement digital live classes, where students can
 	Runs the app in the development mode.<br />
 	Open (http://localhost:8000) to view it in the browser.
 </pre>
+
+### App is also live at - 
+1. Deploy on heroku - https://stutor-pk.herokuapp.com/ 
