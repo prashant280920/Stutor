@@ -6,6 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
+  body {
+   margin: 10px;
+  }
   .container {
     max-width: 750px;
   }
@@ -41,8 +44,8 @@
         <center>
           <div>
             <img src="{{users.profile_pic.url}}" width="150" height="150" style="border-radius: 50%;">
+
             <br>
-            <hr>
             <br>
           </div>
         </center>
@@ -51,46 +54,60 @@
 
           <tr>
             <th scope="row"></th>
-            <td><b>Id</b></td>
+            <td><strong>Id</strong></td>
             <td>:</td>
             <td>{{ users.id }} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Name</b></td>
+            <td><strong>Name</strong></td>
             <td>:</td>
             <td>{{users.user.first_name}} {{users.user.last_name}} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Specialization</b></td>
+            <td><strong>Specialization</strong></td>
             <td>:</td>
             <td>{{users.specialization}} </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Availability </b></td>
+            <td><strong>Availability </strong></td>
             <td>:</td>
             <td>Available</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Country </b></td>
+            <td><strong>Country </strong></td>
             <td>:</td>
             <td> {{users.country}}</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Coaching Address</b></td>
+            <td><strong>Contact</strong></td>
+            <td>:</td>
+            <td>{{users.contact}}</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td><strong>Coaching Address</strong></td>
             <td>:</td>
             <td>{{users.homeaddress}}, {{users.country}}</td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><b>Discription</b></td>
+            <td><strong>Discription</strong></td>
             <td>:</td>
             <td>{{users.about}}</td>
           </tr>
+
+          <tr>
+            <th scope="row"></th>
+            <td><b></b></td>
+            <td></td>
+            <td></td>
+          </tr>
+
         </tbody>
         </table>
     </div>
@@ -115,6 +132,7 @@
     <a href="{% my_url tutor_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Last</a>
     {% endif %}
 </span>
+<br>
 </center>
 <hr>
 <br>
